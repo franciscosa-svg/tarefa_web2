@@ -15,7 +15,8 @@
     <p>Opções de acesso:</p>
     <a class="Botoes">1.Cadastro do Cliente</a>
     <a class="Botoes">2.Pedido do Cliente</a>
-    
+    <hfran>-svg/</hfran>
+    <a>1.Cadastro do cliente</a>
 
     </div>
 </body>

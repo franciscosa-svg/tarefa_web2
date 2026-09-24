@@ -1,0 +1,11 @@
+{
+    "name": "franciscosa-svg/tarefa_web2",
+    "description": "inicializador",
+    "type": "project",
+    "authors": [
+        {
+            "name": "francisco"
+        }
+    ],
+    "require": {}
+}

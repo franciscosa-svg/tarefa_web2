@@ -1,2 +1,2 @@
 # tarefa_web2
-autores: @franciscosa-svg e @guilhermeanjos3-hue
+<p style="color:blue">autores: @franciscosa-svg e @guilhermeanjos3-hue</p>

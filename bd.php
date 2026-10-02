@@ -25,16 +25,22 @@
     function setDado($tabela, $dados) {
         $sql = "INSERT INTO $tabela(";
         $index = 0;
+        
         foreach ($dados as $dado) {
-            if($index > 0) $sql .= ",";
             $sql .= $dado[0];
+            if($index > count($tabela)-1) $sql .= ",";
             $index++;
         }
+        
         $sql .= ") values (";
-        for ($i=0; $i < $index ; $i++) { 
-            if($i > 0) $sql .= ",";
-            $sql .= ":".$dados[$i][0];
+        
+        $index = 0;
+        foreach ($dados as $dado) {
+            $sql .= ":".$dado[0];
+            if($index > count($tabela)-1) $sql .= ",";
+            $index++;
         }
+
         $sql .= ")";
 
         try{
@@ -53,12 +59,75 @@
         }
     }
 
-    function getDados(string $tabela){
-        $sql = "SELECT * from $tabela";
+    function getDados($tabela, $filtro){
+        $sql = "SELECT * from $tabela ";
+
+        if($filtro != null){
+            $sql .= "where ".$filtro[0]."= :".$filtro[0];
+        }
 
         try {
             $conn = getConnection();
             $rs = $conn->prepare($sql);
+
+            if($filtro != null){
+                $rs->bindParam(":".$filtro[0], $filtro[1]);
+            }
+
+            $rs->execute();
+            return $rs->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Throwable $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+            return null;
+        }
+    }
+
+    function updateDados($tabela, $valores, $filtro) {
+        $sql = "UPDATE $tabela SET ";
+        $index = 0;
+        foreach ($valores as $valor) {
+            $sql .= $valor["parametro"] . "= :" . $valor["parametro"];
+            if($index < count($valores)-1) $sql.=",";
+            $index++;
+        }
+
+        if($filtro != null){
+            $sql .= " where ".$filtro[0]."= :".$filtro[0]."_filtro";
+        }
+
+        try {
+            $conn = getConnection();
+            $rs = $conn->prepare($sql);
+
+            foreach ($valores as $valor) {
+                $rs->bindParam(":".$valor["parametro"],$valor["valor"]);
+            }
+
+            if($filtro != null){
+                $rs->bindParam(":".$filtro[0]."_filtro", $filtro[1]);
+            }
+
+            $rs->execute();
+            return $rs->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Throwable $e) {
+            echo "Erro na conexão: " . $e->getMessage();
+            return null;
+        }
+    }
+
+    function deleteValor($tabela, $filtro) {
+        $sql = "DELETE $tabela ";
+        if($filtro != null){
+            $sql .= "where ".$filtro[0]."= :".$filtro[0];
+        }
+
+        try {
+            $conn = getConnection();
+            $rs = $conn->prepare($sql);
+
+            if($filtro != null){
+                $rs->bindParam(":".$filtro[0], $filtro[1]);
+            }
 
             $rs->execute();
             return $rs->fetchAll(PDO::FETCH_ASSOC);

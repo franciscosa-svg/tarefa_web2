@@ -49,6 +49,5 @@ CREATE TABLE produto (
     primary key(id_produto),    
 );
 
--- Dados da tabela produto
 
 --------------------------------------------------

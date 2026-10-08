@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css">
 <?php
     $escolha = $_GET["escolha"] ?? "";
 

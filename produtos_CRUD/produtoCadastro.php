@@ -1,27 +1,28 @@
+<link rel="stylesheet" href="../style.css">
 <?php
     include "../bd.php";
 
-    $nome = trim((string)($_POST["nome"] ?? ""));
-    $sabor = trim((string)($_POST["sabor"] ?? ""));
+    $nome = $_POST["nome"] ?? "";
+    $sabor = $_POST["sabor"] ?? "";
 
-    if ($sabor === "" || $nome === "") {
+    if($sabor==="" || $nome===""){
         echo "<h1 class=\"erro\">Retornando a pagina inicial, por falta de conteudo</h1>";
-        echo "<meta http-equiv=\"refresh\" content=\"3;url=../produto.php?escolha=cadastro\">";
-        exit;
+        
     }
+    else{
+        $tabela = "produto";
 
-    $tabela = "produto";
-    $dados = [
-        ["nome", $nome],
-        ["sabor", $sabor]
-    ];
+        $dados = [
+            ["nome",$nome],
+            ["sabor",$sabor]
+        ];
 
-    if (setDado($tabela, $dados)) {
-        echo "<h1 class=\"sucesso\">Produto cadastrado com sucesso!</h1>";
-    } else {
-        echo "<h1 class=\"erro\">Erro ao cadastrar produto.</h1>";
+        if (setDado($tabela,$dados)) echo "<h1 class=\"sucesso\">Retornando para a pagina inicial, produto cadastrado completo</h1>";
+        else echo "<h1 class=\"erro\">Retornando a pagina inicial, por falta de conteudo</h1>";
+        
     }
-
-    echo "<meta http-equiv=\"refresh\" content=\"3;url=../produto.php?escolha=cadastro\">";
+    sleep(4);
+        
+    echo "<meta http-equiv=\"refresh\" content=\"5;url=cliente.php?escolha=cadastro\">";
     exit;
 ?>

@@ -1,0 +1,112 @@
+
+#visualizar{
+    padding: 10px;
+}
+#cadastro{
+    padding: 10px;
+}
+
+body, #divisoria{
+    background-color: rgb(255, 255, 242);
+}
+
+h1{
+    background-color: rgb(255, 194, 194);
+    font-size: 3rem;
+    color: rgb(231, 11, 11);
+}
+h2{
+    font-size: 2rem;
+}
+p{
+    font-size: 2rem;
+}
+.erro{
+    color: rgb(255, 0, 0);
+}
+.sucesso{
+    color: rgb(0, 0, 255);
+}
+.caixa-saida, .caixa-entrada{
+    padding: 5px;
+    margin: 10px 0px;
+    background-color: rgb(214, 214, 214);
+}
+.botao{
+    background-color: rgb(255, 0, 0);
+    padding: 8px 14px;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.formulario{
+    background-color: rgb(255, 255, 242);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 6px;
+    padding: 10px;
+}
+.cabecario-cadastro{
+    background-color: rgb(255, 221, 221);
+    color: rgb(255, 255, 242);
+    padding: 10px;
+    border-radius: 6px;
+}
+.lista-filtro{
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 242);
+}
+#entrada-menu{
+    padding: 10px;
+    border: 3px solid rgb(223, 223, 223);
+    border-radius: 25px;
+}
+.tabela{
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    padding: 10px;
+}
+.botao-editar{
+    padding: 8px 14px;
+    background-color: rgb(142, 247, 255);
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+.tabela-linha{
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+}
+.caixa-valor{
+    border: 1px solid rgb(0, 0, 0);
+    padding: 5px;
+    background-color: rgba(0, 0, 0, 0.205);
+}
+
+.botao-excluir{
+    padding: 8px 14px;
+    background-color: rgb(252, 44, 44);
+    border: 1px solid;
+    border-radius: 6px;
+    padding: 8px 14px;
+    cursor: pointer;
+}
+
+.botao-excluir, .botao-editar{
+    font-weight: bolder;
+    color:rgba(0, 0, 0, 0.774);
+}
+
+.valor-id{
+    color: rgb(139, 0, 0);
+}
+.valor-normal{
+    color: rgb(0, 0, 0);
+}
+
+.valor-id, .valor-normal{
+    font-weight: bolder;
+}
+

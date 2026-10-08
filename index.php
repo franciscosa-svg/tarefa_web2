@@ -1,6 +1,3 @@
-<?php
-    
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,21 +7,25 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-    <h1>Pizzaria do Bitela!</h1>
-    <h2>Faça seu cadastro e seu pedido</h2>
-    <p>Opções de acesso:</p>
+    <div id="divisoria">
+        <div id="titulo">
+            <h1>A Pizzaria do Bitela</h1>
+            <h2>Faça seu cadastro e seu pedido</h2>
+        </div>
+        <div id="entrada-menu">
+            <p>Opções de acesso</p>
 
-    <div class="Sub-div">
-        <a class="Botoes" href="cliente.php?escolha=cadastro"><button type="button">Cadastro do Cliente</button></a>
-        <a class="Botoes" href="pedido.php?escolha=cadastro"><button type="button">Cadastro do Pedido</button></a>
-        <a class="Botoes" href="produto.php?escolha=cadastro"><button type="button">Cadastro do Produto</button></a>
-    </div>
-    <div class="Sub-div">
-        <a class="Botoes" href="cliente.php?escolha=mostrar"><button type="button">Mostrar Clientes</button></a>
-        <a class="Botoes" href="pedido.php?escolha=mostrar"><button type="button">Mostrar Pedidos</button></a>
-        <a class="Botoes" href="produto.php?escolha=mostrar"><button type="button">Mostrar Produtos</button></a>
-    </div>
+            <div class="sub-divisoria" id="cadastro">
+                <a href="cliente.php?escolha=cadastro"><button class="botao" type="button" method="get">Cadastro do Cliente</button></a>
+                <a href="pedido.php?escolha=cadastro"><button class="botao" type="button" method="get">Cadastro do Pedido</button></a>
+                <a href="produto.php?escolha=cadastro"><button class="botao" type="button" method="get">Cadastro do Produto</button></a>
+            </div>
+            <div class="sub-divisoria" id="visualizar">
+                <a href="cliente.php?escolha=mostrar"><button class="botao" type="button" method="get">Mostrar Clientes</button></a>
+                <a href="pedido.php?escolha=mostrar"><button class="botao" type="button" method="get">Mostrar Pedidos</button></a>
+                <a href="produto.php?escolha=mostrar"><button class="botao" type="button" method="get">Mostrar Produtos</button></a>
+            </div>
+        </div>
     </div>
 </body>
 </html>

@@ -24,11 +24,12 @@
 
     function setDado($tabela, $dados) {
         $sql = "INSERT INTO $tabela(";
+        $totalDados = count($dados);
         $index = 0;
         
         foreach ($dados as $dado) {
             $sql .= $dado[0];
-            if($index > count($tabela)-1) $sql .= ",";
+            if($index < $totalDados - 1) $sql .= ",";
             $index++;
         }
         
@@ -37,7 +38,7 @@
         $index = 0;
         foreach ($dados as $dado) {
             $sql .= ":".$dado[0];
-            if($index > count($tabela)-1) $sql .= ",";
+            if($index < $totalDados - 1) $sql .= ",";
             $index++;
         }
 
@@ -63,7 +64,7 @@
         $sql = "SELECT * from $tabela ";
 
         if($filtro != null){
-            $sql .= "where ".$filtro[0]."= :".$filtro[0];
+            $sql .= "where ".$filtro["parametro"]."= :".$filtro["parametro"];
         }
 
         try {
@@ -71,7 +72,7 @@
             $rs = $conn->prepare($sql);
 
             if($filtro != null){
-                $rs->bindParam(":".$filtro[0], $filtro[1]);
+                $rs->bindParam(":".$filtro["parametro"], $filtro["valor"]);
             }
 
             $rs->execute();
@@ -87,12 +88,12 @@
         $index = 0;
         foreach ($valores as $valor) {
             $sql .= $valor["parametro"] . "= :" . $valor["parametro"];
-            if($index < count($valores)-1) $sql.=",";
+            if($index < count($valores)-1) $sql.=", ";
             $index++;
         }
 
         if($filtro != null){
-            $sql .= " where ".$filtro[0]."= :".$filtro[0]."_filtro";
+            $sql .= " where ".$filtro["parametro"]."= :".$filtro["parametro"]."_filtro";
         }
 
         try {
@@ -104,11 +105,11 @@
             }
 
             if($filtro != null){
-                $rs->bindParam(":".$filtro[0]."_filtro", $filtro[1]);
+                $rs->bindParam(":".$filtro["parametro"]."_filtro", $filtro["valor"]);
             }
 
             $rs->execute();
-            return $rs->fetchAll(PDO::FETCH_ASSOC);
+            return $rs->rowCount() > 0;
         } catch (Throwable $e) {
             echo "Erro na conexão: " . $e->getMessage();
             return null;
@@ -116,9 +117,9 @@
     }
 
     function deleteValor($tabela, $filtro) {
-        $sql = "DELETE $tabela ";
+        $sql = "DELETE from $tabela ";
         if($filtro != null){
-            $sql .= "where ".$filtro[0]."= :".$filtro[0];
+            $sql .= "where ".$filtro["parametro"]."= :".$filtro["parametro"];
         }
 
         try {
@@ -126,11 +127,11 @@
             $rs = $conn->prepare($sql);
 
             if($filtro != null){
-                $rs->bindParam(":".$filtro[0], $filtro[1]);
+                $rs->bindParam(":".$filtro["parametro"], $filtro["valor"]);
             }
 
             $rs->execute();
-            return $rs->fetchAll(PDO::FETCH_ASSOC);
+            return $rs->rowCount() > 0;
         } catch (Throwable $e) {
             echo "Erro na conexão: " . $e->getMessage();
             return null;

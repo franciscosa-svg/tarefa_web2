@@ -3,7 +3,7 @@
 -- Estrutura da tabela cliente
 CREATE TABLE cliente (
     id_cliente serial NOT NULL,
-    cpf text NOT NULL,
+    cpf text NOT NULL UNIQUE,
     n_mesa int NOT NULL,
     nome_completo text NOT NULL,
 
@@ -16,7 +16,7 @@ CREATE TABLE cliente (
 -- Estrutura da tabela pedido
 CREATE TABLE pedido (
     id_pedido serial NOT NULL ,
-    id_cliente int NOT NULL
+    id_cliente int NOT NULL,
 
     primary key(id_pedido),
     foreign key(id_cliente) references cliente(id_cliente)
@@ -46,8 +46,11 @@ CREATE TABLE produto (
     sabor text NOT NULL,
     nome text NOT NULL,
 
-    primary key(id_produto),    
+    primary key(id_produto) 
 );
 
+-- Dados da tabela produto
 
 --------------------------------------------------
+
+select * from produto;

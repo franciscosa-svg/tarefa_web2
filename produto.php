@@ -16,7 +16,7 @@
             break;
         case "mostrar":
 
-            echo "<meta http-equiv=\"refresh\" content=\"5;url=produtos_CRUD/produtosVisualizar.php\">";
+            echo "<meta http-equiv=\"refresh\" content=\"0;url=produtos_CRUD/produtosVisualizar.php\">";
             break;
         default:
             echo "<h1 class=\"erro\">Erro: Não foi possível encontrar o tipo do formulário</h1>";

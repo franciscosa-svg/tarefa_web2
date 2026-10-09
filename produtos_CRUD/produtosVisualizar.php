@@ -3,10 +3,14 @@
     $tabela = "produto";
     $filtro = $_GET["filtro"] ?? "";
     include "../bd.php";
+
+    $ordernar = [
+        "parametro" => "id_produto ASC"
+    ];
     switch ($filtro) {
         case "":
             
-            $dados = getDados($tabela, null);
+            $dados = getDados($tabela, null, $ordernar);
             echo "
                 <form class=\"formulario\" action=\"produtosVisualizar.php\" method=\"get\">
                     <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
@@ -61,10 +65,10 @@
             $dados = Array();
 
             if($filtragem["valor"] != "" ){
-                $dados = getDados($tabela, $filtragem);
+                $dados = getDados($tabela, $filtragem, $ordernar);
             }
             else{
-                $dados = getDados($tabela, null);
+                $dados = getDados($tabela, null, $ordernar);
             }
             
             echo "
@@ -84,24 +88,28 @@
             echo "
             <h1 class=\"cabecario\">Tabela de produtos</h1>
 
-            <table>
+            <table class=\"tabela\">
                 <thead>
-                    <td>ID</td>
-                    <td>Nome</td>
-                    <td>Sabor</td>
-                    <td>Editar</td>
-                    <td>Exlcuir</td>
+                    <tr class=\"tabela-linha\">
+                    <td class=\"caixa-valor valor-id\">ID</td>
+                    <td class=\"caixa-valor valor-normal\">Nome</td>
+                    <td class=\"caixa-valor valor-normal\">Sabor</td>
+                    <td class=\"caixa-valor valor-normal\">Editar</td>
+                    <td class=\"caixa-valor valor-normal\">Excluir</td>
+                    </tr>
                 </thead>
+                <tbody>
                 ";
             foreach ($dados as $dado) {
-                echo "<tbody>";
-                echo "  <td>".$dado["id_produto"]."</td>";
-                echo "  <td>".$dado["nome"]."</td>";
-                echo "  <td>".$dado["sabor"]."</td>";
-                echo "  <td><a href=\"produtoAtualizar.php?id=".$dado["id_produto"]."\"><button class=\"butao butao-editar\" type=\"button\">Editar</button></a></td>";
-                echo "  <td><a href=\"produtoDeletar.php?id=".$dado["id_produto"]."\"><button class=\"butao butao-editar\" type=\"button\">Deleta</button></a></td>
-                      </tbody>";
+                echo "<tr class=\"tabela-linha\">";
+                echo "  <td class=\"caixa-valor valor-saida\">".$dado["id_produto"]."</td>";
+                echo "  <td class=\"caixa-valor valor-saida\">".$dado["nome"]."</td>";
+                echo "  <td class=\"caixa-valor valor-saida\">".$dado["sabor"]."</td>";
+                echo "  <td class=\"caixa-valor\"><a href=\"produtoAtualizar.php?id=".$dado["id_produto"]."\"><button class=\"butao botao-editar\" type=\"button\">Editar</button></a></td>";
+                echo "  <td class=\"caixa-valor\"><a href=\"produtoDeletar.php?id=".$dado["id_produto"]."\"><button class=\"butao botao-excluir\" type=\"button\">Deletar</button></a></td>
+                    </tr>  ";
             }
+            echo "</tbody>";
             break;
     }
 ?>

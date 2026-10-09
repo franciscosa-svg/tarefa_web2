@@ -18,7 +18,8 @@
             </form>";            
             break;
         case "mostrar":
-            
+            echo "<meta http-equiv=\"refresh\" content=\"0;url=clientes_CRUD/clientesVisualizar.php\">";
+            break;
         default:
             echo "<h1 class=\"erro\">Erro: Não foi possível encontrar o tipo do formulário</h1>";
             break;

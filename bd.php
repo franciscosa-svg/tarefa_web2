@@ -60,21 +60,24 @@
         }
     }
 
-    function getDados($tabela, $filtro){
+    function getDados($tabela, $filtro = [], $ordenar = []){
         $sql = "SELECT * from $tabela ";
 
-        if($filtro != null){
-            $sql .= "where ".$filtro["parametro"]."= :".$filtro["parametro"];
+        if(!empty($filtro)){
+            $sql .= "where ".$filtro["parametro"]."= :parametro_filtro";
+        }
+        if(!empty($ordenar)){
+            $sql .= " order by {$ordenar["parametro"]}";
         }
 
         try {
             $conn = getConnection();
             $rs = $conn->prepare($sql);
 
-            if($filtro != null){
-                $rs->bindParam(":".$filtro["parametro"], $filtro["valor"]);
+            if(!empty($filtro)){
+                $rs->bindParam(":parametro_filtro", $filtro["valor"]);
             }
-
+            
             $rs->execute();
             return $rs->fetchAll(PDO::FETCH_ASSOC);
         } catch (Throwable $e) {
@@ -101,11 +104,11 @@
             $rs = $conn->prepare($sql);
 
             foreach ($valores as $valor) {
-                $rs->bindParam(":".$valor["parametro"],$valor["valor"]);
+                $rs->bindValue(":".$valor["parametro"],$valor["valor"]);
             }
 
             if($filtro != null){
-                $rs->bindParam(":".$filtro["parametro"]."_filtro", $filtro["valor"]);
+                $rs->bindValue(":".$filtro["parametro"]."_filtro", $filtro["valor"]);
             }
 
             $rs->execute();
@@ -116,7 +119,7 @@
         }
     }
 
-    function deleteValor($tabela, $filtro) {
+    function deleteValor($tabela, $filtro = []) {
         $sql = "DELETE from $tabela ";
         if($filtro != null){
             $sql .= "where ".$filtro["parametro"]."= :".$filtro["parametro"];

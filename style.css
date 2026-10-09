@@ -31,6 +31,26 @@ p{
     margin: 10px 0px;
     background-color: rgb(214, 214, 214);
 }
+.caixa-saida-cpf, .caixa-entrada-cpf{
+    display: grid;
+    grid: 150px / auto auto;
+    grid-row: 1 / 2;
+    padding: 5px;
+    margin: 10px 0px;
+    background-color: rgb(187, 187, 187);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 6px;
+}
+#caixa-saida-quantidade, #caixa-entrada-quantidade{
+    display: grid;
+    grid: 150px / auto auto;
+    grid-row: 1 / 2;
+    padding: 5px;
+    margin: 10px 0px;
+    background-color: rgb(255, 238, 219);
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 6px;
+}
 .botao{
     background-color: rgb(255, 0, 0);
     padding: 8px 14px;
@@ -41,6 +61,8 @@ p{
     cursor: pointer;
 }
 .formulario{
+    display: grid;
+    grid: 150px / auto auto;
     background-color: rgb(255, 255, 242);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 6px;
@@ -107,76 +129,56 @@ p{
     font-weight: bolder;
 }
 .botao-deletar{
-    padding: 8px 14px;
-    background-color: rgb(252, 44, 44);
     border: 1px solid;
     border-radius: 6px;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.685);
 }
 .deletar-confirmar{
-    padding: 8px 14px;
-    background-color: rgb(238, 252, 44);
+    background-color: rgb(255, 0, 0);
     border: 3px solid;
     border-radius: 6px;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.685);
 }
-.deletar-negar{/*guilherme, aqui era para tipo confirmar com o vermelho e o negar o verde*/
-    padding: 8px 14px;
-    background-color: rgb(238, 252, 44);
+.deletar-negar{
+    background-color: rgb(86, 235, 0);
     border: 3px solid;
     border-radius: 6px;
     cursor: pointer;
+    color: rgba(0, 0, 0, 0.685);
+}
+.menu-deletar{
+    background-color: rgba(0, 0, 0, 0.205);
+    border: 2px solid;
+    border-radius: 10px;
+    cursor: pointer;
+    display: grid;
+    grid: 150px / auto auto;
+    align-items: center;
+    justify-content: center;
+}
+.menu-deletar-titulo{
+    grid-area: 1 / 1 / 1 / span 1; 
+    text-align: center;
+}
+.botoes-deletar{
+    width: auto;
+    display: grid;
+    grid: 150px / auto auto;
+    justify-items: center;
+}
+.link-deletar-confirmar{
+    grid-row-end: auto;
+}
+.link-deletar-negar{
+    grid-row-start: auto;
 }
 
 
-
-/* pedidoDeletar.php
-
-<link rel="stylesheet" href="style.css">
-<?php
-    include "../bd.php";
-
-    $tabela = "produto";
-    $opcao = $_GET["resposta"] ?? "";
-    $id = intval($_GET["id"]) ?? 0;
-    
-    switch ($opcao) {
-        case "sim":
-
-            $filtro = [
-                "parametro" => "id_produto",
-                "valor" => $id
-            ];
-            try {
-                $valor = deleteValor($tabela, $filtro);
-                if($valor){
-                    echo "<h1 class=\"sucesso\">Retornando para a pagina de visualizar, produto deletado com sucesso</h1>";
-                }
-                else{
-                    echo "<h1 class=\"erro\">Retornando a pagina inicial, por falta de conteudo</h1>";
-                }
-                               
-            } catch (Throwable $th) {
-                echo "<h1 class=\"erro\">Retornando a pagina de edição, falha na deleção</h1>";
-            }
-                
-            echo "<meta http-equiv=\"refresh\" content=\"5;url=produtosVisualizar.php?\">"; 
-            exit;
-        case "nao":
-            echo "<h1 class=\"sucesso\">Retornando para a pagina de visualizar</h1>";
-                
-            echo "<meta http-equiv=\"refresh\" content=\"5;url=produtosVisualizar.php?\">"; 
-            exit;
-        default:
-            echo "
-            <div class=\"menu-deletar\">
-                <h1 class=\"menu-deletar-titulo\">Deseja deletar esse produto?</h1>
-                <a href=\"produtoDeletar.php?resposta=sim&id={$id}\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Sim</button></a>
-                <a href=\"produtoDeletar.php?resposta=nao\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Não</button></a>
-            </div>
-            ";
-            break;
-    }
-
-?>
+/*
+    .lista-opcoes
+    .opcao
+    .formulario-filtro
 */
+

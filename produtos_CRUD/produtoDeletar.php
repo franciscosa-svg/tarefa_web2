@@ -37,8 +37,8 @@
             echo "
             <div class=\"menu-deletar\">
                 <h1 class=\"menu-deletar-titulo\">Deseja deletar esse produto?</h1>
-                <a href=\"produtoDeletar.php?resposta=sim&id={$id}\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Sim</button></a>
-                <a href=\"produtoDeletar.php?resposta=nao\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Não</button></a>
+                <a class=\"link-deletar\" href=\"produtoDeletar.php?resposta=sim&id={$id}\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Sim</button></a>
+                <a class=\"link-deletar\" href=\"produtoDeletar.php?resposta=nao\"><button class=\"botao botao-deletar deletar-negar\" method=\"get\">Não</button></a>
             </div>
             ";
             break;

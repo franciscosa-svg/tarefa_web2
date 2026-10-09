@@ -12,7 +12,7 @@
             
             $dados = getDados($tabela, null, $ordernar);
             echo "
-                <form class=\"formulario\" action=\"produtosVisualizar.php\" method=\"get\">
+                <form class=\"formulario-filtro\" action=\"produtosVisualizar.php\" method=\"get\">
                     <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
                     <label for=\"entrada\" class=\"caixa-saida\">Entrada</label><br>
 
@@ -72,7 +72,7 @@
             }
             
             echo "
-                <form class=\"formulario\" action=\"produtosVisualizar.php\" method=\"get\">
+                <form class=\"formulario-filtro\" action=\"produtosVisualizar.php\" method=\"get\">
                     <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
                     <label for=\"entrada\" class=\"caixa-saida\">Entrada</label><br>
 

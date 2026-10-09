@@ -1,7 +1,11 @@
 <link rel="stylesheet" href="../style.css">
 <?php
-
-    $tabela = "cliente";
+    $tabelas = [
+        "pedido",
+        "produto_cliente",
+        "produto",
+        "cliente"
+        ];
     $filtro = $_GET["filtro"] ?? "";
     include "../bd.php";
 
@@ -13,7 +17,7 @@
             
             $dados = getDados($tabela, null, $ordernar);
             echo "
-                <form class=\"formulario-filtro\" action=\"clientesVisualizar.php\" method=\"get\">
+                <form class=\"formulario\" action=\"clientesVisualizar.php\" method=\"get\">
                     <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
                     <label for=\"entrada\" class=\"caixa-saida\">Entrada</label><br>
 
@@ -76,7 +80,7 @@
             }
             
             echo "
-                <form class=\"formulario-filtro\" action=\"clientesVisualizar.php\" method=\"get\">
+                <form class=\"formulario\" action=\"clientesVisualizar.php\" method=\"get\">
                     <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
                     <label for=\"entrada\" class=\"caixa-saida\">Entrada</label><br>
 

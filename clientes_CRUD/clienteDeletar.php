@@ -36,9 +36,11 @@
         default:
             echo "
             <div class=\"menu-deletar\">
-                <h1 class=\"menu-deletar-titulo\">Deseja deletar esse cliente?</h1>
-                <a href=\"clienteDeletar.php?resposta=sim&id={$id}\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Sim</button></a>
-                <a href=\"clienteDeletar.php?resposta=nao\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Não</button></a>
+                <h1 class=\"menu-deletar-titulo\">Deseja deletar esse cliente?</h1><br>
+                <div class=\"botoes-deletar\">
+                    <a class=\"link-deletar-negar\" href=\"clienteDeletar.php?resposta=nao\"><button class=\"botao botao-deletar deletar-negar\" method=\"get\">Não</button></a>
+                    <a class=\"link-deletar-confirmar\" href=\"clienteDeletar.php?resposta=sim&id={$id}\"><button class=\"botao botao-deletar deletar-confirmar\" method=\"get\">Sim</button></a>
+                </div>
             </div>
             ";
             break;

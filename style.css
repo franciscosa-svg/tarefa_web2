@@ -26,10 +26,33 @@ p{
 .sucesso{
     color: rgb(0, 0, 255);
 }
+.caixa-saida, .caixa-saida-filtro{
+    border: black solid 2px;
+}
+.caixa-saida-filtro{
+    background-color: rgb(250, 250, 250);
+    border-radius: 6px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(255, 0, 0);
+}
+.caixa-entrada-filtro{
+    background-color: rgb(250, 250, 250);
+    border-radius: 6px;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgba(255, 0, 0, 0.500);
+}
 .caixa-saida, .caixa-entrada{
     padding: 5px;
-    margin: 10px 0px;
     background-color: rgb(214, 214, 214);
+}
+.caixa-saida-filtro, .caixa-entrada-filtro, .lista-filtro, .botao-filtro{
+    width: auto;
+    margin: 10px;
+    text-align: center;
+}
+.botao-filtro{
+    grid-area: 3 /  1 / span 1 / span 2;
+    box-sizing: border-box;
 }
 .caixa-saida-cpf, .caixa-entrada-cpf{
     display: grid;
@@ -60,17 +83,28 @@ p{
     margin-right: 10px;
     cursor: pointer;
 }
+
 .formulario{
     display: grid;
-    grid: 150px / auto auto;
     background-color: rgb(255, 255, 242);
     border: 1px solid rgb(0, 0, 0);
     border-radius: 6px;
-    padding: 10px;
+    
 }
+.formulario-cadastro{
+    grid: 150px / auto auto;
+    padding: 10px;
+
+}
+.formulario-filtro{
+    grid: auto / auto auto;
+    grid-template-columns: 1fr 1fr;
+}
+
 .cabecario-cadastro{
-    background-color: rgb(255, 221, 221);
-    color: rgb(255, 255, 242);
+    grid: 150px / auto auto;
+    background-color: rgb(255, 194, 194);
+    color: rgb(255, 0, 0);
     padding: 10px;
     border-radius: 6px;
 }
@@ -179,6 +213,6 @@ p{
 /*
     .lista-opcoes
     .opcao
-    .formulario-filtro
+    .formulario-filtro -
 */
 

@@ -40,7 +40,7 @@
 
         try{
             if (setDado($tabela,$dados)){ echo "<h1 class=\"sucesso\">Retornando para a pagina inicial, produto cadastrado completo</h1>";}
-            else{ echo "<h1 class=\"erro\">Retornando a pagina inicial, por falta de conteudo</h1>";}
+            else{ echo "<h1 class=\"erro\">Retornando a pagina inicial, erro no cadastro";}
         }
         catch(Throwable $e){
             echo "<h1 class=\"erro\">Erro na hora de registrar</h1>";

@@ -13,17 +13,18 @@
             
             $dados = getDados($tabela, null, $ordernar);
             echo "
-                <form class=\"formulario-filtro\" action=\"clientesVisualizar.php\" method=\"get\">
-                    <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
-                    <label for=\"entrada\" class=\"caixa-saida\">Entrada</label><br>
+                <form class=\"formulario formulario-filtro\" action=\"clientesVisualizar.php\" method=\"get\">
+                    <label for=\"entrada\" class=\"caixa-saida-filtro\">Lista de filtro</label>
+                    <label for=\"filtro\" class=\"caixa-saida-filtro\">Entrada</label>
+                    
 
                     <select name=\"filtro\" id=\"lista\" class=\"lista-filtro\">
                         <option value=\"\">--Filtro--</option>
-                        <option value=\"id_produto\">ID</option>
+                        <option value=\"id_cliente\">ID</option>
                         <option value=\"cpf\">CPF</option>
                     </select>
-                    <input type=\"text\" name=\"valor\" class=\"caixa-entrada\" id=\"valor\" placeholder=\"filtro\">
-                    <button class=\"butao\" type=\"submit\">Filtrar</button>
+                    <input type=\"text\" name=\"valor\" class=\"caixa-entrada-filtro\" id=\"valor\" placeholder=\"filtro\">
+                    <button class=\"botao botao-filtro\" type=\"submit\">Filtrar</button>
                 </form>
                 <a href=\"../index.php\"><button class=\"botao\" type=\"button\">Voltar</button></a>";
             
@@ -76,17 +77,18 @@
             }
             
             echo "
-                <form class=\"formulario-filtro\" action=\"clientesVisualizar.php\" method=\"get\">
-                    <label for=\"filtro\" class=\"caixa-saida\">Filtro</label>
-                    <label for=\"entrada\" class=\"caixa-saida\">Entrada</label><br>
+                <form class=\"formulario formulario-filtro\" action=\"clientesVisualizar.php\" method=\"get\">
+                    <label for=\"entrada\" class=\"caixa-saida-filtro\">Lista de filtro</label>
+                    <label for=\"filtro\" class=\"caixa-saida-filtro\">Entrada</label>
+                    
 
                     <select name=\"filtro\" id=\"lista\" class=\"lista-filtro\">
                         <option value=\"\">--Filtro--</option>
-                        <option value=\"id_produto\">ID</option>
+                        <option value=\"id_cliente\">ID</option>
                         <option value=\"cpf\">CPF</option>
                     </select>
-                    <input type=\"text\" name=\"valor\" class=\"caixa-entrada\" id=\"valor\" placeholder=\"filtro\">
-                    <button class=\"butao\" type=\"submit\">Filtrar</button>
+                    <input type=\"text\" name=\"valor\" class=\"caixa-entrada-filtro\" id=\"valor\" placeholder=\"filtro\">
+                    <button class=\"botao botao-filtro\" type=\"submit\">Filtrar</button>
                 </form>
                 <a href=\"../index.php\"><button class=\"botao\" type=\"button\">Voltar</button></a>";
             

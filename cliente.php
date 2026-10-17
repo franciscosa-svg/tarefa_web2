@@ -5,7 +5,7 @@
     switch ($escolha) {
         case "cadastro":
             echo "<h1 class=\"cabecario-cadastro\">Cadastro de cliente</h1>";
-            echo "<form class=\"formulario\" action=\"clientes_CRUD/clienteCadastro.php\" method=\"post\">
+            echo "<form class=\"formulario formulario-cadastro\" action=\"clientes_CRUD/clienteCadastro.php\" method=\"post\">
                 <label for=\"nome\" class=\"caixa-saida\">Nome do cliente</label>
                 <input type=\"text\" id=\"nome\" name=\"nome\" class=\"caixa-entrada\" placeholder=\"Nome\"><br>
                 <label for=\"n_mesa\" class=\"caixa-saida\">Número da mesa</label>
